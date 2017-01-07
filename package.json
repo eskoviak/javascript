@@ -1,0 +1,6 @@
+{
+    "name" : "javascript",
+    "description": "Ed's first javascript package",
+    "author": "Ed Skoviak <eskoviak@eskoviak.net",
+    "version" : "1.0.0"
+}
