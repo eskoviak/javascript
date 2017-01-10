@@ -2,5 +2,7 @@
     "name" : "javascript",
     "description": "Ed's first javascript package",
     "author": "Ed Skoviak <eskoviak@eskoviak.net",
-    "version" : "1.0.0"
+    "version" : "1.0.0",
+    "repository": "git@github.com/eskoviak/javascript.git",
+    "license": ""
 }
