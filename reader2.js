@@ -3,7 +3,7 @@
  * Reading a yaml file and writing it out to a json file
  */
  
-const FS = require('fs');
+const FS = require('fs')
 var file = 'Policy.yaml';
 
 native = require('js-yaml').safeLoad(FS.readFileSync(file, 'utf8'));
@@ -15,7 +15,7 @@ var properties = Object.getOwnPropertyNames(native.properties);
 //for (property in properties) {
 //    console.log(property + ' : ' )
 //}
-properties.forEach( (value, index) => {
-    console.log(native.properties[value]);
+properties.forEach( (value, index, arr) => {
+    console.log(arr[index] + ' : ' + native.properties[value]['type']);
 } );
   
