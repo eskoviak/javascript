@@ -6,10 +6,14 @@
 const FS = require('fs')
 var file = 'Policy.yaml';
 
+// native is a JS Object
+// Loads and parses file into the native object
 native = require('js-yaml').safeLoad(FS.readFileSync(file, 'utf8'));
+
+//writes the object out to a file by the same name as JSON
 FS.writeFileSync(require('path').basename(file, '.yaml')+'.json', JSON.stringify(native));
-//console.log(Object.getOwnPropertyNames(native.properties));
-//console.log(native.properties['id']['type']);
+
+// play around with the JSON object
 var properties = Object.getOwnPropertyNames(native.properties);
 //console.log(properties[2]);
 //for (property in properties) {
@@ -17,5 +21,6 @@ var properties = Object.getOwnPropertyNames(native.properties);
 //}
 properties.forEach( (value, index, arr) => {
     console.log(arr[index] + ' : ' + native.properties[value]['type']);
-} );
+    } 
+);
   

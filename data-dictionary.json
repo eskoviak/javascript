@@ -1,0 +1,11 @@
+// JSON schema file
+{
+    "type" : "object",
+    "properties" : {
+        "provenance" : { "type" : "string" },
+        "entry" : { "type" : "string" },
+        "definition" : { "type" : "string"},
+        "jsonDataType" : { "type" : "string", "format" : "string"},
+        "usedIn" : { "type" : "array", "items" : "string"}
+     }
+}
