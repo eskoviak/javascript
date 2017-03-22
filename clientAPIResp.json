@@ -1,0 +1,69 @@
+{"data": [{
+   "id": "9MIMXF3OCIWUC520037C",
+   "sourceSystemType": null,
+   "sourceSystemTypeCode": "IN",
+   "name": "TAYLOR DENNY",
+   "personName": null,
+   "phoneNumbers":    [
+            {
+         "phoneType": null,
+         "phoneTypeCode": "HH",
+         "phoneNumber": "+1-942-6137766+"
+      },
+      []
+   ],
+   "taxId": null,
+   "addresses":    [
+            {
+         "street1": "1257 W 1000 N",
+         "street2": null,
+         "city": "MacY",
+         "state": "IN",
+         "postalCode": "46951-7815",
+         "country": "USA",
+         "county": null,
+         "countyCode": 52,
+         "township": null,
+         "townshipCode": "01",
+         "addressType": "INHL"
+      },
+      null
+   ],
+   "preferences":    [
+            {
+         "preference": "Billing Alert",
+         "preferenceCode": "OAMAB",
+         "enabled": false
+      },
+            {
+         "preference": "Marketing Email",
+         "preferenceCode": "OAMME",
+         "enabled": false
+      },
+            {
+         "preference": "Paper Policy Documents",
+         "preferenceCode": "OAMPD",
+         "enabled": false
+      },
+            {
+         "preference": "Product Email",
+         "preferenceCode": "OAMPE",
+         "enabled": false
+      },
+            {
+         "preference": "Paper Invoice",
+         "preferenceCode": "OAMPI",
+         "enabled": false
+      }
+   ],
+   "demographics":    {
+      "gender": null,
+      "genderCode": "F",
+      "dateOfBirth": "1999-03-21",
+      "maritalStatus": null,
+      "maritalStatusCode": "S",
+      "driversLicenseNumber": null,
+      "driversLicenseState": null,
+      "dateOfDeath": null
+   }
+}]}
