@@ -1,7 +1,5 @@
 description: |
   A top-level model which represents an insurance Policy (of various types) or an annuity Contract (fixed and variable).
-x-acord-agg-xref:
-  '#LAH' : 'OLife/Holding/Policy'
 required: 
   - 'id'
   - 'transactionId'
@@ -43,10 +41,6 @@ properties:
   transactionId:
     description: |
       A transaction, or session key, provided by the source system during a multi-step business process.  The key is needed by subsequent operations to complete the desired processing.
-    x-used-in:
-      - 'PersAutoModRq'
-    x-acord-xref:
-      - '%SIGNONENTITY.SessKey'
     type: 
       - 'string'
       - 'null'  
@@ -97,11 +91,6 @@ properties:
   priorPolicyNumber:
     description: |
       Used in situations where there is a one-to-one correspondence between a current policy and the one being converted, replaced, exchanged, or re-issued.
-    x-used-in:
-      - 'Life'
-      - 'Annuities'
-    x-acord-xref:
-      - '#LAH.PriorPolNumber'
     type:
       - 'string'
       - 'null'
@@ -134,18 +123,12 @@ properties:
   transactionStatus:
     description: |
       The transaction status is additional information to the policy status, which is an indicator of a possible change in the policy status due to a pending transaction.  Example:  cancellation in process.  Either transactionStatus or transactionStatusCode must be specfied.
-    x-required-in:
-      - 'Home'
-      - 'Auto'
     type:
       - 'string'
       - 'null'
   transactionStatusCode:
     description: |
       The transaction status code is additional information to the policy status, which is a code indicating a possible change in the policy status due to a pending transaction.  Example:  cancellation in process.  Either transactionStatus or transactionStatusCode must be specfied.
-    x-required-in:
-      - 'Home'
-      - 'Auto'
     type:
       - 'string'
       - 'null'
@@ -186,17 +169,12 @@ properties:
     description: |
       The score or index used to rate the policy, such as a credit score or other indicator of financial
       health.
-    x-required-in:
-      - 'Homeowners'
     type: 
       - 'string'
       - 'null'
   issueAge:
     description: |
       The age of the insured or annuitant at the time of issue. This is a policy level property, meaning that it applies to the entire policy package. This usage is more common in Annuity contracts.  For a life insurance policy, it is more common to specify the issue age of the insured at the Coverage level.
-    x-optional-in:
-      - 'Life'
-      - 'Annuities'
     type:
       - 'number'
       - 'null'
