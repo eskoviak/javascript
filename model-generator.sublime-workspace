@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"resp",
+				"responseCB"
+			],
+			[
 				"prop",
 				"properties"
 			],
@@ -335,24 +339,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "test-yamljs.js",
-			"settings":
-			{
-				"buffer_size": 955,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "// Test yamljs"
-			}
-		},
-		{
-			"file": "Policy.yaml",
-			"settings":
-			{
-				"buffer_size": 8069,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -390,6 +376,12 @@
 	],
 	"file_history":
 	[
+		"/C/Users/opr1073/Google Drive/Projects/javascript/test-yamljs.js",
+		"/C/Users/opr1073/Google Drive/Projects/javascript/testXMLHttpRequest.js",
+		"/C/Users/opr1073/Google Drive/Projects/javascript/testHttp.js",
+		"/C/Users/opr1073/Google Drive/Projects/swagger-editor/index.html",
+		"/C/Users/opr1073/Google Drive/Projects/swagger-editor/dist/swagger-editor.js",
+		"/C/Users/opr1073/Downloads/development-environments.svg",
 		"/C/Users/opr1073/Google Drive/Projects/javascript/Policy.yaml",
 		"/C/Users/opr1073/Desktop/parameters_frag.json",
 		"/C/IFBIDEV/Projects/api.system.client-interests/design/sd-client-interests-2.0.0.puml",
@@ -511,13 +503,7 @@
 		"/C/Users/opr1073/Projects/icaf-api-swagger/validate.err",
 		"/C/Users/opr1073/Documents/output1.xml",
 		"/C/Users/opr1073/AppData/Roaming/Sublime Text 3/Packages/User/guld-vlaidate.yaml",
-		"/C/Users/opr1073/Projects/icaf-api-swagger/swagger/models/LifeCoverage.yaml",
-		"/C/Users/opr1073/Projects/icaf-api-swagger/swagger/models/LifeNonForfiture.yaml",
-		"/C/Users/opr1073/Projects/icaf-api-swagger/swagger/models/LifePolicy.yaml",
-		"/C/Users/opr1073/Projects/icaf-api-swagger/swagger/models/AutoPolicy.yaml",
-		"/C/Users/opr1073/Projects/icaf-api-swagger/LIfeNonForfiture.yaml",
-		"/C/Users/opr1073/Projects/icaf-api-swagger/swagger/models/InsuranceLine.yaml",
-		"/C/Users/opr1073/Projects/icaf-api-swagger/swagger/models/Coverage (2).yaml"
+		"/C/Users/opr1073/Projects/icaf-api-swagger/swagger/models/LifeCoverage.yaml"
 	],
 	"find":
 	{
@@ -619,68 +605,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "test-yamljs.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 955,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								817,
-								787
-							]
-						],
-						"settings":
-						{
-							"auto_name": "// Test yamljs",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 324.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Policy.yaml",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 8069,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3798.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
