@@ -8,14 +8,18 @@
 */
 var https = require('https');
 var yaml = require('js-yaml');
+var basePath = '/eskoviak/ifbdataapi/feature/EWS-870/swagger/models';
+var file = '/Policy.yaml';
 
-// set up some parameters
+// set up options object to be passed in
 const options = {
 	hostname : 'raw.githubusercontent.com',
-	path : '/eskoviak/ifbdataapi/feature/EWS-870/swagger/models/Policy.yaml',
+	path : '',
 	method : 'GET',
 	auth : 'eskoviak:route66'
 }
+
+options.path = basePath + file;
 
 function getResource(responseCB) {
 	return https.get( options,
@@ -37,13 +41,16 @@ function responseCB(data) {
 	/*
 		data is a native js object
 	*/
-	//console.log(data["properties"]);
-	var dictionaryEntry = {};
-	for (property in data["properties"]) {
+	//console.log(data.properties);
+	var dictionaryEntry = new Object();
+	var objProperty = new Object();
+	for (objProperty in data.properties) {
 		//console.log(property);
-		dictionaryEntry["name"] = property;
-		dictionaryEntry["description"] = data["properties"]["property"]["description"];
+		dictionaryEntry["name"] = objProperty;
+		dictionaryEntry["description"] = data.properties[objProperty].description;
+		dictionaryEntry["type"]= data.properties[objProperty].type;
 		console.log(dictionaryEntry);
+
 	}
 }
 
