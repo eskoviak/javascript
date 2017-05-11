@@ -39,19 +39,25 @@ const rl = readline.createInterface( {
 rl.on('line', (line) => {
 	options.path = basePath + line;
 	console.log(options.path);
-	getResource(line, responseCB);
+	console.log(getResource(line, responseCB));
 })
+
+// rl.on('close', () => {
+// 	outStream.write('End of File');
+// })
+
+// outStream.on('open', () => {
+// 	outStream.write('Beginning of File');
+// })
 
 
 function getResource(modelName, responseCB) {
-	return https.get( options,
-	  function(response) {
+	return https.get( options, (response) => {
 		var body = '';
-		response.on('data', function(d) {
-			//console.log(d);
+		response.on('data', (d) => {
 			body += d;
 		});
-		response.on('end', function() {
+		response.on('end', () => {
 			if (body != '') {
 				responseCB(modelName, yaml.safeLoad(body));
 			}
@@ -64,7 +70,7 @@ function responseCB(modelName, data) {
 		data is a native js object
 	*/
 	//console.log(data.properties);
-	var dictionaryEntry = new Object();
+	// var dictionaryEntry = new Object();
 	var objProperty = new Object();
 	for (objProperty in data.properties) {
 		// //console.log(property);
