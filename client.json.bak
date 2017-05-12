@@ -1,0 +1,35 @@
+{
+    "id" : "/client",
+    "type" : "object",
+    "properties" : {
+        "id" : { "type" : "string"},
+        "sourceSystemType" : { "type" : ["string","null"]},
+        "sourceSystemTypeCode" : { "type" : ["string","null"]},
+        "name" : { "type" : ["string","null"]},
+        "personName" : { "$ref" : "#/definitions/PersonName"},
+        "phoneNumbers" : { "type" : "array", "items" : { "$ref" : "#/definitions/Phone"}},
+        "emailAddresses" : { "type" : "array", "items" : { "$ref" : "../definitions.yaml#/definitions/Email"}},
+        "taxId" : { "type" : ["string","null"]},
+        "addresses" : { "type" : "object"},
+        "preferences" : { "type" : "object"},
+        "demographics" : { "type" : "object"}},
+    "required" : ["id", "sourceSystemType", "sourceSystemTypeCode", "name", "personName", "phoneNumbers", "emailAddresses", "taxId", "addresses", "preferences", "demographics"],
+    "definitions": {
+        "PersonName" : {
+            "properties" : {
+                "firstName" : {"type" : ["string", "null"]},
+                "middleName" : {"type" : ["string", "null"]},
+                "lastName" : {"type" : ["string", "null"]},
+                "titlePrefix" : {"type" : ["string", "null"]},
+                "nameSuffix" : {"type" : ["string", "null"]}
+            }
+        },
+        "Phone" : {
+            "properties" :{
+                "phoneNumber" : { "type" : "string"},
+                "phoneType" : {"enum" : ["Alternate", "Business", "Contact", "Emergency", "Fax", "Account", "Home", "Vacation", "Work", "Cell", "Pager", "Relative", "Toll Free", "Unlisted"]},
+                "phoneTypeCode" : {"type" : ["string", "null"]}
+            }
+        }
+    }
+}

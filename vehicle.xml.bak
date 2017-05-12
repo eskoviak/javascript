@@ -1,0 +1,98 @@
+<ACORD xmlns="http://www.ACORD.org/standards/PC_Surety/ACORD1/xml/">
+	<SignonRs>
+		<ClientDt>2016-11-08T12:08:56.235-05:00</ClientDt>
+		<CustLangPref>EN</CustLangPref>
+		<ClientApp>
+			<Org>IFBI</Org>
+			<Name>OAM</Name>
+			<Version>1.0</Version>
+		</ClientApp>
+		<ServerDt>2016-11-08T12:08:57.246-05:00</ServerDt>
+		<SessKey>f99a5a5f267f496fb2a9fc6708069874</SessKey>
+		<Language>EN</Language>
+	</SignonRs>
+	<InsuranceSvcRs>
+		<RqUID>2b9e53f0-524c-4992-a56e-e0ce99be0eb7</RqUID>
+		<PersAutoPolicyModRs>
+			<RqUID>5098aaa9-5903-4f89-a4d2-57eb25c1cade</RqUID>
+			<BusinessPurposeTypeCd>PCH</BusinessPurposeTypeCd>
+			<TransactionResponseDt>2016-11-08T12:08:57.246-05:00</TransactionResponseDt>
+			<TransactionEffectiveDt>2016-11-08T12:08:56.235-05:00</TransactionEffectiveDt>
+			<CurCd>USD</CurCd>
+			<MsgStatus>
+				<MsgStatusCd>Success</MsgStatusCd>
+			</MsgStatus>
+			<ModInfo IdRef="Vehicle1">
+				<ActionCd>M</ActionCd>
+			</ModInfo>
+			<ModInfo IdRef="VehicleQuestion1">
+				<ActionCd>A</ActionCd>
+			</ModInfo>
+			<ModInfo IdRef="VehicleQuestion2">
+				<ActionCd>A</ActionCd>
+			</ModInfo>
+			<ModInfo IdRef="VehicleQuestion3">
+				<ActionCd>A</ActionCd>
+			</ModInfo>
+			<ModInfo IdRef="VehicleQuestion4">
+				<ActionCd>A</ActionCd>
+			</ModInfo>
+			<ModInfo IdRef="VehicleQuestion5">
+				<ActionCd>A</ActionCd>
+			</ModInfo>
+			<PersPolicy>
+				<PolicyNumber>0008311523</PolicyNumber>
+				<LOBCd>AUTOP</LOBCd>
+				<ContractTerm>
+					<EffectiveDt>2016-06-10</EffectiveDt>
+					<ExpirationDt>2017-06-10</ExpirationDt>
+				</ContractTerm>
+				<QuoteInfo>
+					<CompanysQuoteNumber>0008311523</CompanysQuoteNumber>
+					<ItemIdInfo>
+						<InsurerId>KVW1VZV7467SPREM</InsurerId>
+					</ItemIdInfo>
+					<IterationNumber>2</IterationNumber>
+					<InsuredFullToBePaidAmt>
+						<Amt>706.52</Amt>
+					</InsuredFullToBePaidAmt>
+				</QuoteInfo>
+			</PersPolicy>
+			<PersAutoLineBusiness>
+				<LOBCd>AUTOP</LOBCd>
+				<PersVeh id="Vehicle1">
+					<ManufacturerCd>CHEV</ManufacturerCd>
+					<ModelCd>SILVSIL2KH</ModelCd>
+					<ModelYear>2001</ModelYear>
+					<VehBodyTypeCd>PU</VehBodyTypeCd>
+					<InspectionInfo>
+						<InspectionStatusCd>Completed</InspectionStatusCd>
+						<VehInspectionInfo>
+							<VehIdentificationNumber>1GCHK24191E314276</VehIdentificationNumber>
+						</VehInspectionInfo>
+					</InspectionInfo>
+					<QuestionAnswer id="VehicleQuestion1">
+						<QuestionCd>AUTOP01</QuestionCd>
+						<YesNoCd>NO</YesNoCd>
+					</QuestionAnswer>
+					<QuestionAnswer id="VehicleQuestion2">
+						<QuestionCd>AUTOP11</QuestionCd>
+						<YesNoCd>NO</YesNoCd>
+					</QuestionAnswer>
+					<QuestionAnswer id="VehicleQuestion3">
+						<QuestionCd>AUPFL02</QuestionCd>
+						<YesNoCd>NO</YesNoCd>
+					</QuestionAnswer>
+					<QuestionAnswer id="VehicleQuestion4">
+						<QuestionCd>AUTOB07</QuestionCd>
+						<YesNoCd>NO</YesNoCd>
+					</QuestionAnswer>
+					<QuestionAnswer id="VehicleQuestion5">
+						<QuestionCd>AUPMA14</QuestionCd>
+						<YesNoCd>NO</YesNoCd>
+					</QuestionAnswer>
+				</PersVeh>
+			</PersAutoLineBusiness>
+		</PersAutoPolicyModRs>
+	</InsuranceSvcRs>
+</ACORD>
