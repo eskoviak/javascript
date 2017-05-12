@@ -6,12 +6,28 @@ author:  eskoviak@gmail.com
 version: 0.9
 
  */
+class objectWriteStream extends require('stream').Writable {
+
+  constructor(options) {
+    if (typeof options === 'undefined' ) var options={};
+    options.objectMode = 'true';
+    super(options);
+  }
+
+  _write(chunk, enc, cb) {
+    //console.log(JSON.stringify(chunk));
+    cb();
+  }
+}
+
+
+
 var fs = require('fs');
 var readline = require('readline');
 var https = require('https');
 var yaml = require('js-yaml');
 var basePath = '/eskoviak/ifbdataapi/develop/swagger/models/';
-var dictionary = new Object();
+var items = [];
 
 // OPTIONS Declarations
 const getOptions = {
@@ -31,16 +47,11 @@ const inOptions = {
 
 // create i/o streams
 outStream = fs.createWriteStream('dataDict.json', outOptions);
+outObjStream = new objectWriteStream(); 
 inStream = fs.createReadStream('filelist.txt', inOptions);
 const rl = readline.createInterface({
     input: inStream
 });
-
-// Event handlers
-// outStream.on('open', () => {
-// 	console.log('in outStream open');
-// 	outStream.write('{ "api-model-properties" :  {\n');
-// })
 
 rl.on('line', (line) => {
     getOptions.path = basePath + line;
@@ -49,25 +60,21 @@ rl.on('line', (line) => {
 })
 
 inStream.on('end', () => {
-    console.log('waiting for Godot...');
-    // okay, so this is a hack, but it works for now
-    // need to wait until the spawned threads finish updating the dictionary
-    setTimeout(cleanup, 10000);
+  setTimeout( writeFile, 10000);
 })
 
-function cleanup() {
-    outStream.write(JSON.stringify(dictionary));
-    outStream.close();
+function writeFile() {
+  outStream.write(JSON.stringify({"dictionaryEntries":items}));
 }
+//function addItem(item) {
+//  items.push(item);
+//}
 
-// outStream.on('finish', () => {
-// 	outStream.write('\n}');
-// })
 /*
-This function calls the repository and gets the raw file specified.
-It then processes it and extracts information about the properties, sending that
-data to the repsonseCB function
- */
+  This function calls the repository and gets the raw file specified.
+  It then processes it and extracts information about the properties, sending that
+  data to the repsonseCB function
+*/
 function getResource(modelName, responseCB) {
     return https.get(getOptions, (response) => {
         var body = '';
@@ -84,41 +91,17 @@ function responseCB(modelName, data) {
     /*
     data is a native js object
      */
-    //console.log(data.properties);
-    // const eol = /\n$/;
-    var value = new Object();
-    for (objProperty in data.properties) {
-        
-        // if (typeof data.properties[objProperty].type != 'undefined') {
-        // 	objType = data.properties[objProperty].type;
-        // } else {
-        // 	objType = 'null';
-        // }
-        
-        // if (typeof data.properties[objProperty].description != 'undefined') {
-        // 	objDesc = data.properties[objProperty].description;
-        // } else {
-        // 	objDesc = 'null';
-        // }
-        // if ( eol.test(objDesc) ) objDesc = objDesc.substring(0, objDesc.lastIndexOf('\n'));
-        
-        value[ 'type'] = data.properties[objProperty].type;
+    //var value = {};
+    for (var objProperty in data.properties) {
+        value = {};
+	value[ 'type'] = data.properties[objProperty].type;
         value[ 'model'] = modelName;
         value[ 'description'] = data.properties[objProperty].description;
-        //value = '{ "type" : "' + objType + '", "model" : "' + modelName + '", "description" : "' + objDesc + '"}';
-        //console.log(value);
-        
-        updateDictionary(objProperty, value);
-        //dictionary[objProperty] = value;
-        //console.log(dictionary);
-        // outStream.write('\t"'+objProperty+'" : {\n\t\t"type" : "' +
-        // 	objType + '",\n\t\t' +
-        // 	'"model" : "' + modelName + '",\n\t\t"description" : "' +
-        // 	objDesc + '"},\n');
-        //outStream.write(modelName+'|'+objProperty+'|'+objType+'|'+objDesc);
+        // this is a hack but it works for now
+        var temp = {};
+        temp[ objProperty ] = value;
+        //if( !outObjStream.write( temp )) console.log(" ++++ object outstream full");
+        items.push(temp);       
     }
-    
-    function updateDictionary(key, value) {
-        dictionary[key] = value;
-    }
-}
+}    
+
