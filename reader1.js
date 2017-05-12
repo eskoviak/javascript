@@ -1,6 +1,6 @@
 var fs = require('fs');
 var parser = require('swagger-parser');
-var yaml = require('js-yaml');
+var yaml = require('yaml-js');
 /*
 parser.validate('Policy.yaml', 
   (err, api) => {
@@ -23,5 +23,5 @@ parser.validate('Policy.yaml',
     });
 */
 
-var native = yaml.safeLoad(fs.readFileSync('Policy.yaml', 'utf8'));
+var native = yaml.parse(fs.readFileSync('Policy.yaml', 'utf8'));
 console.log(JSON.stringify(native));
