@@ -61,15 +61,14 @@ rl.on('line', (line) => {
 })
 
 inStream.on('end', () => {
+  // this is a hack, but works -- wait for a the threads to finish
   setTimeout( writeFile, 10000);
 })
 
 function writeFile() {
   outStream.write(JSON.stringify({"dictionaryEntries":items}));
+  outStream.close();
 }
-//function addItem(item) {
-//  items.push(item);
-//}
 
 /*
   This function calls the repository and gets the raw file specified.
@@ -98,7 +97,7 @@ function responseCB(modelName, data) {
     for (var objProperty in data.properties) {
         value = {};
         
-        if (data.properties[objProperty].enum !== 'undefined') {
+        if (typeof data.properties[objProperty].enum !== 'undefined') {
         	value[ 'enum'] = data.properties[objProperty].enum;
 		} else {
 			value[ 'type'] = data.properties[objProperty].type;
