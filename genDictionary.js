@@ -49,6 +49,7 @@ const inOptions = {
 outStream = fs.createWriteStream('dataDict.json', outOptions);
 outObjStream = new objectWriteStream(); 
 inStream = fs.createReadStream('filelist.txt', inOptions);
+
 const rl = readline.createInterface({
     input: inStream
 });
@@ -89,19 +90,31 @@ function getResource(modelName, responseCB) {
 
 function responseCB(modelName, data) {
     /*
-    data is a native js object
+      This function parses the response (data :== js object), and populates the
+      variouse fields in the value object, which is then added to the master 
+      json file.
      */
     //var value = {};
     for (var objProperty in data.properties) {
         value = {};
-	value[ 'type'] = data.properties[objProperty].type;
+        
+        if (data.properties[objProperty].enum !== 'undefined') {
+        	value[ 'enum'] = data.properties[objProperty].enum;
+		} else {
+			value[ 'type'] = data.properties[objProperty].type;
+			if ( value.type === 'array') value['items'] = data.properties[objProperty].items;
+
+	    }
+
+		if ( typeof data.properties[objProperty]['$ref'] !== 'undefined') {
+			value['$ref'] = data.properties[objProperty]['$ref'];
+		}
         value[ 'model'] = modelName;
         value[ 'description'] = data.properties[objProperty].description;
+        
         // this is a hack but it works for now
         var temp = {};
         temp[ objProperty ] = value;
-        //if( !outObjStream.write( temp )) console.log(" ++++ object outstream full");
         items.push(temp);       
     }
 }    
-
